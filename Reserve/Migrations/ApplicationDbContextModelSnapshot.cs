@@ -246,6 +246,9 @@ namespace Reserve.Migrations
                     b.Property<string>("User_id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
+                    b.Property<bool?>("confirmation")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -265,6 +268,9 @@ namespace Reserve.Migrations
             modelBuilder.Entity("Reserve.Data.Utitlisateur", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Conter")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -330,7 +336,7 @@ namespace Reserve.Migrations
 
             modelBuilder.Entity("Reserve.Data.reservation", b =>
                 {
-                    b.HasOne("Reserve.Data.Utitlisateur", "user")
+                    b.HasOne("Reserve.Data.Utitlisateur", "utitlisateur")
                         .WithMany()
                         .HasForeignKey("User_id");
 

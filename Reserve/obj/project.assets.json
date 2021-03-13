@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Microsoft.AspNetCore.Authentication.Google/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.11": {
         "type": "package",
         "compile": {
@@ -2919,6 +2931,20 @@
     }
   },
   "libraries": {
+    "Microsoft.AspNetCore.Authentication.Google/3.1.1": {
+      "sha512": "cpAYyp9r3x7QJqNF7GccojBsHhX+Q6D09Z0TxgwsKGscQnGhGCnKQe/Cn0aI0pIoCAHvhxYtAZkriLIB9933VQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.3.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.11": {
       "sha512": "o6kCCaDCkP1rGpMkeyBn9YlgbpVgoSPxV0YNtyntEB9zFqpGH4LmOvnyUQE/6PNfU8bw1MejbLQE7uNIT53Qkg==",
       "type": "package",
@@ -9268,6 +9294,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Microsoft.AspNetCore.Authentication.Google >= 3.1.1",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.11",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.11",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.11",
@@ -9285,11 +9312,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\Reserve.csproj",
+      "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\Reserve.csproj",
       "projectName": "Reserve",
-      "projectPath": "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\Reserve.csproj",
+      "projectPath": "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\Reserve.csproj",
       "packagesPath": "C:\\Users\\Youcode\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\obj\\",
+      "outputPath": "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -9322,6 +9349,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[3.1.1, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.11, )"

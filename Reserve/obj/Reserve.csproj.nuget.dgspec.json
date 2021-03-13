@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\Reserve.csproj": {}
+    "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\Reserve.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\Reserve.csproj": {
+    "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\Reserve.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\Reserve.csproj",
+        "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\Reserve.csproj",
         "projectName": "Reserve",
-        "projectPath": "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\Reserve.csproj",
+        "projectPath": "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\Reserve.csproj",
         "packagesPath": "C:\\Users\\Youcode\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Youcode\\Desktop\\RervationYocode\\Reserve\\obj\\",
+        "outputPath": "C:\\Users\\Youcode\\Desktop\\ResrveYocode\\Reserve\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,6 +44,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.11, )"

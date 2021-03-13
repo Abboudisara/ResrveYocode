@@ -21,7 +21,7 @@ namespace Reserve.Controllers
         // GET: reservations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Reservations.Include(r => r.typeReservation).Include(r => r.user);
+            var applicationDbContext = _context.Reservations.Include(r => r.typeReservation).Include(r => r.utitlisateur);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace Reserve.Controllers
 
             var reservation = await _context.Reservations
                 .Include(r => r.typeReservation)
-                .Include(r => r.user)
+                .Include(r => r.utitlisateur)
                 .FirstOrDefaultAsync(m => m.id_reservation == id);
             if (reservation == null)
             {
@@ -58,7 +58,7 @@ namespace Reserve.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_reservation,date,typeReservationid_type,User_id")] reservation reservation)
+        public async Task<IActionResult> Create([Bind("id_reservation,date,typeReservationid_type,User_id,confirmation")] reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace Reserve.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_reservation,date,typeReservationid_type,User_id")] reservation reservation)
+        public async Task<IActionResult> Edit(int id, [Bind("id_reservation,date,typeReservationid_type,User_id,confirmation")] reservation reservation)
         {
             if (id != reservation.id_reservation)
             {
@@ -136,7 +136,7 @@ namespace Reserve.Controllers
 
             var reservation = await _context.Reservations
                 .Include(r => r.typeReservation)
-                .Include(r => r.user)
+                .Include(r => r.utitlisateur)
                 .FirstOrDefaultAsync(m => m.id_reservation == id);
             if (reservation == null)
             {

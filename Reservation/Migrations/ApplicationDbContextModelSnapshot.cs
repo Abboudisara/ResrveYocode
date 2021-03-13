@@ -2,21 +2,19 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Reserve.Data;
+using Reservation.Data;
 
-namespace Reserve.Migrations
+namespace Reservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210312210938_test")]
-    partial class test
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.13")
+                .HasAnnotation("ProductVersion", "3.1.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -80,10 +78,6 @@ namespace Reserve.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("Email")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
                         .HasMaxLength(256);
@@ -134,8 +128,6 @@ namespace Reserve.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -221,64 +213,6 @@ namespace Reserve.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Reserve.Data.TypeReservation", b =>
-                {
-                    b.Property<int>("id_type")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nom")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("NombreApp")
-                        .HasColumnType("int");
-
-                    b.HasKey("id_type");
-
-                    b.ToTable("Types");
-                });
-
-            modelBuilder.Entity("Reserve.Data.reservation", b =>
-                {
-                    b.Property<int>("id_reservation")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("User_id")
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
-
-                    b.Property<string>("date")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("typeReservationid_type")
-                        .HasColumnType("int");
-
-                    b.HasKey("id_reservation");
-
-                    b.HasIndex("User_id");
-
-                    b.HasIndex("typeReservationid_type");
-
-                    b.ToTable("reservation");
-                });
-
-            modelBuilder.Entity("Reserve.Data.Utitlisateur", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasDiscriminator().HasValue("Utitlisateur");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -326,19 +260,6 @@ namespace Reserve.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Reserve.Data.reservation", b =>
-                {
-                    b.HasOne("Reserve.Data.Utitlisateur", "user")
-                        .WithMany()
-                        .HasForeignKey("User_id");
-
-                    b.HasOne("Reserve.Data.TypeReservation", "typeReservation")
-                        .WithMany()
-                        .HasForeignKey("typeReservationid_type")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

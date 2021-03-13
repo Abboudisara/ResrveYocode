@@ -21,9 +21,12 @@ namespace Reserve.Data
 
         [ForeignKey(nameof(typeReservationid_type))]
         public TypeReservation typeReservation { get; set; }
+        public string User_id { get; set; }
 
         [ForeignKey("User_id")]
-        public Utitlisateur user { get; set; }
-        public string User_id { get; set; }
+        public Utitlisateur utitlisateur { get; set; }
+
+        public bool? confirmation { get; set; }
+
     }
 }

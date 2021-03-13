@@ -13,5 +13,7 @@ namespace Reserve.Data
         public string Name { get; set; }
         [Required]
         public string FullName { get; set; }
+
+        public string Conter { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Reserve.Migrations
 {
-    public partial class test : Migration
+    public partial class init1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,8 @@ namespace Reserve.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    FullName = table.Column<string>(nullable: true)
+                    FullName = table.Column<string>(nullable: true),
+                    Conter = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -178,7 +179,8 @@ namespace Reserve.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     date = table.Column<string>(nullable: false),
                     typeReservationid_type = table.Column<int>(nullable: false),
-                    User_id = table.Column<string>(nullable: true)
+                    User_id = table.Column<string>(nullable: true),
+                    confirmation = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
