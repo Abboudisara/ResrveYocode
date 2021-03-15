@@ -10,6 +10,6 @@ namespace Reservation.ViewModels
         public string UserId { get; set; }
         public string UserNam { get; set; }
         public bool IsSelected { get; set; }
-
+        public object UserName { get; internal set; }
     }
 }
