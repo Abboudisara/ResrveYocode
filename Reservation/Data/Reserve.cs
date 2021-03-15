@@ -26,7 +26,7 @@ namespace Reservation.Data
         [ForeignKey("User_id")]
         public Utilisateur utitlisateur { get; set; }
 
-        public bool? confirmation { get; set; }
+        public String Status { get; set; }
 
         
     }
