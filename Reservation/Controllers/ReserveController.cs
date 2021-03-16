@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Reservation.Data;
 using System;
@@ -12,13 +13,19 @@ namespace Reservation.Controllers
     public class ReserveController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public ReserveController(ApplicationDbContext db)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _identityRole;
+
+        public ReserveController(ApplicationDbContext db , UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> identityRole)
         {
             _db = db;
+            _userManager = userManager;
+            _identityRole = identityRole;
         }
-        public IActionResult Index()
+        public async Task < IActionResult> Index()
         {
-            var display = _db.Reservations.ToList();
+            ApplicationUser user = await _userManager.FindByEmailAsync(User.Identity.Name);
+            var display = _db.Reservations.ToList().Where(r=>r.User_id==user.Id);
 
             return View(display);
         }
@@ -37,12 +44,73 @@ namespace Reservation.Controllers
         {
             if (ModelState.IsValid)
             {
+                //GET
+
+                var user = await _userManager.GetUserAsync(User);
+                nec.utitlisateur = user;
+                //var role = await _identityRole.GetRoleNameAsync(Type);
+                //nec.typeReservation = Type;
+
+
+                //SET
                 _db.Add(nec);
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
 
             }return View(nec);
 
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var getUserId = await _db.Reservations.FindAsync(id);
+            return View(getUserId);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Reserve re)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Update(re);
+                await _db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(re);
+        }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var getUserId = await _db.Reservations.FindAsync(id);
+            return View(getUserId);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var getUserId = await _db.Reservations.FindAsync(id);
+            return View(getUserId);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+           
+            var getUserId = await _db.Reservations.FindAsync(id);
+            _db.Reservations.Remove(getUserId);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }

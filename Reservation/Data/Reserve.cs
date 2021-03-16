@@ -24,7 +24,7 @@ namespace Reservation.Data
         public string User_id { get; set; }
 
         [ForeignKey("User_id")]
-        public Utilisateur utitlisateur { get; set; }
+        public ApplicationUser utitlisateur { get; set; }
 
         public String Status { get; set; }
 

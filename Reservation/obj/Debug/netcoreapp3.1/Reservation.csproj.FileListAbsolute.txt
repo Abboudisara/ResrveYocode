@@ -238,3 +238,6 @@ C:\Users\Youcode\Desktop\ResrveYocode\Reservation\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\Youcode\Desktop\ResrveYocode\Reservation\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\Youcode\Desktop\ResrveYocode\Reservation\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditeUsersInRole.cshtml.g.cs
 C:\Users\Youcode\Desktop\ResrveYocode\Reservation\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Youcode\Desktop\ResrveYocode\Reservation\obj\Debug\netcoreapp3.1\Razor\Views\Reserve\Edit.cshtml.g.cs
+C:\Users\Youcode\Desktop\ResrveYocode\Reservation\obj\Debug\netcoreapp3.1\Razor\Views\Reserve\Details.cshtml.g.cs
+C:\Users\Youcode\Desktop\ResrveYocode\Reservation\obj\Debug\netcoreapp3.1\Razor\Views\Reserve\Delete.cshtml.g.cs
