@@ -10,13 +10,7 @@ namespace Reservation.Data
     public class Utilisateur : IdentityUser
     {
         
-            [Required]
-            public string Name { get; set; }
-            [Required]
-            public string FullName { get; set; }
-
-            public string Conter { get; set; }
-        
+            
     }
 }
 

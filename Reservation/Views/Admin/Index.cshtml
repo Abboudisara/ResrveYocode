@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Reservation.Data.Reserve>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -27,11 +28,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th></th>
+           <th>
+            @Html.DisplayNameFor(model => model.utitlisateur.Counter)
+        </th>
+           
+            @*<th> </th>*@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.id_reservation)
@@ -39,6 +45,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.date)
             </td>
+            @*<a href="C:\Users\Youcode\Desktop\ResrveYocode\Reservation\Views\Admin\Index.cshtml">C:\Users\Youcode\Desktop\ResrveYocode\Reservation\Views\Admin\Index.cshtml</a>*@
             <td>
                 @Html.DisplayFor(modelItem => item.typeReservationid_type)
             </td>
@@ -49,11 +56,14 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.utitlisateur.Counter)
+            </td>
+            <td style="width:200px;">
                 @Html.ActionLink("Edit", "Edit", new { id = item.id_reservation }, new { @class = "btn btn-primary" }) |
-             
+
                 @Html.ActionLink("Delete", "Delete", new { id = item.id_reservation }, new { @class = "btn btn-danger" })
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

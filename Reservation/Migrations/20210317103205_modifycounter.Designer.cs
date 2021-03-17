@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Reservation.Data;
 
 namespace Reservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210317103205_modifycounter")]
+    partial class modifycounter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace Reservation.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Counter")
+                    b.Property<int>("Conter")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -236,6 +238,9 @@ namespace Reservation.Migrations
                     b.Property<string>("User_id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
+                    b.Property<string>("conterId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
                     b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -246,6 +251,8 @@ namespace Reservation.Migrations
                     b.HasKey("id_reservation");
 
                     b.HasIndex("User_id");
+
+                    b.HasIndex("conterId");
 
                     b.HasIndex("typeReservationid_type");
 
@@ -324,8 +331,12 @@ namespace Reservation.Migrations
             modelBuilder.Entity("Reservation.Data.Reserve", b =>
                 {
                     b.HasOne("ApplicationUser", "utitlisateur")
-                        .WithMany("Reservations")
+                        .WithMany()
                         .HasForeignKey("User_id");
+
+                    b.HasOne("ApplicationUser", "conter")
+                        .WithMany()
+                        .HasForeignKey("conterId");
 
                     b.HasOne("Reservation.Data.TypeReservation", "typeReservation")
                         .WithMany()

@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Reservation.Data;
 using Reservation.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -233,5 +235,12 @@ namespace Reservation.Controllers
 
 public class ApplicationUser : IdentityUser
 {
-    public static object Create { get; internal set; }
+    [Required]
+    public string Name { get; set; }
+    [Required]
+    public string FullName { get; set; }
+
+    public int Counter { get; set; }
+
+    public virtual List<Reserve> Reservations { get; set; }
 }

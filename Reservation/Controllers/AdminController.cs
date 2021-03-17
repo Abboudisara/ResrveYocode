@@ -26,9 +26,10 @@ namespace Reservation.Controllers
        
         public IActionResult Index()
         {
-           // var display = _db.Reservations.ToList().Where(r => r.User_id == user.Id);
+            // var display = _db.Reservations.ToList().Where(r => r.User_id == user.Id);
 
-            var List = _db.Reservations.ToList();
+            var List = _db.Reservations.Include(c => c.utitlisateur);
+            
             return View(List);
         }
 
