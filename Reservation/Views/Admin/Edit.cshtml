@@ -39,16 +39,17 @@
         </div>*@
 
 
-            <div class="form-group">
+        <div class="form-group">
 
-                <select asp-for="Status">
-                    <option selected disabled>--Select the Situation--</option>
-                    <option>Approve</option>
-                    <option>Non Approve</option>
-                    <option>Delete</option>
+            <select asp-for="Status">
+                <option selected disabled>--Select the Situation--</option>
+                <option>Non Approve</option>
+                <option>Delete</option>
 
-                </select>
-                </div>
+            </select>
+            <br />
+            <button asp-action="Status" asp-route-id="@Model.id_reservation" class=" btn btn-primary m-2">Approve</button>
+        </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>

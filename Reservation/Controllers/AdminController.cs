@@ -26,12 +26,23 @@ namespace Reservation.Controllers
        
         public IActionResult Index()
         {
-            // var display = _db.Reservations.ToList().Where(r => r.User_id == user.Id);
+          
 
-            var List = _db.Reservations.Include(c => c.utitlisateur);
+            var List = _db.Reservations.Include(c => c.utitlisateur).OrderBy(c => c.utitlisateur.Counter);
             
             return View(List);
         }
+
+        //[HttpGet]
+        //public async Task<IActionResult> Index(String StatusSearch)
+        //{
+        //    ViewData["GetStatusSearch"] = StatusSearch;
+        //    var queryStatus = from x in _db.Reservations select x;
+        //    if (!string.IsNullOrEmpty(StatusSearch))
+        //    {
+        //        queryStatus=StatusSearch.Where(x=>x.Status(StatusSearch)||x.)
+        //    }
+        //}
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -77,6 +88,20 @@ namespace Reservation.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        // Counter:
+        public IActionResult Status(int id)
+        {
+           
+            var reservation = _db.Reservations.Include(x => x.utitlisateur).FirstOrDefault(x => x.id_reservation == id);
+            reservation.Status="Approve";
+            reservation.utitlisateur.Counter++;
+            _db.Reservations.Update(reservation);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
 
     }
 

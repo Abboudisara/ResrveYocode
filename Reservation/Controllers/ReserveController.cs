@@ -50,8 +50,7 @@ namespace Reservation.Controllers
 
                 var user = await _userManager.GetUserAsync(User);
                 nec.utitlisateur = user;
-                //var role = await _identityRole.GetRoleNameAsync(Type);
-                //nec.typeReservation = Type;
+                
 
 
                 //SET
