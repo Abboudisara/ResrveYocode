@@ -235,9 +235,9 @@ namespace Reservation.Controllers
 
 public class ApplicationUser : IdentityUser
 {
-    [Required]
+    
     public string Name { get; set; }
-    [Required]
+    
     public string FullName { get; set; }
 
     public int Counter { get; set; }
