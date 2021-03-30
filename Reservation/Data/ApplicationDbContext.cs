@@ -14,8 +14,7 @@ namespace Reservation.Data
 
         }
 
-        //public static object Create { get; internal set; }
-        //public virtual DbSet<Utilisateur> user { get; set; }
+
         public DbSet<TypeReservation> Types { get; set; }
         public DbSet<Reserve> Reservations { get; set; }
         public DbSet<Reservation.Data.Reserve> reservation { get; set; }

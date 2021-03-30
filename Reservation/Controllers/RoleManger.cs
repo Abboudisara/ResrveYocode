@@ -1,6 +1,6 @@
-﻿namespace Reservation.Controllers
-{
-    public class RoleManger<T>
-    {
-    }
-}
+﻿//namespace Reservation.Controllers
+//{
+//    public class RoleManger<T>
+//    {
+//    }
+//}

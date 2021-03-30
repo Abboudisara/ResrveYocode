@@ -39,11 +39,7 @@ namespace Reservation
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-           //services.AddTransient();
-
-
-
-
+       
             services.AddAuthentication()
                .AddGoogle(options =>
                {

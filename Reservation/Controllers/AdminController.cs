@@ -14,35 +14,37 @@ namespace Reservation.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _identityRole;
+     
 
-        public AdminController(ApplicationDbContext db, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> identityRole)
+        public AdminController(ApplicationDbContext db )
         {
             _db = db;
-            _userManager = userManager;
-            _identityRole = identityRole;
+
         }
        
         public IActionResult Index()
         {
-          
 
-            var List = _db.Reservations.Include(c => c.utitlisateur).OrderBy(c => c.utitlisateur.Counter);
+
+            var List = _db.Reservations.Include(c => c.utitlisateur).OrderBy(c => c.utitlisateur.Counter) ;
             
             return View(List);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Index(String StatusSearch)
-        //{
-        //    ViewData["GetStatusSearch"] = StatusSearch;
-        //    var queryStatus = from x in _db.Reservations select x;
-        //    if (!string.IsNullOrEmpty(StatusSearch))
-        //    {
-        //        queryStatus=StatusSearch.Where(x=>x.Status(StatusSearch)||x.)
-        //    }
-        //}
+        //Search:
+        [HttpGet]
+        public async Task<IActionResult> Index(String ResrveSearch)
+        {
+            ViewData["GetReserve"] = ResrveSearch;
+            var Reseveq = from x in _db.Reservations.Include(c => c.utitlisateur).OrderBy(c => c.utitlisateur.Counter) select x;
+            if (!string.IsNullOrEmpty(ResrveSearch))
+            {
+                Reseveq = Reseveq.Where(x => x.date.Contains(ResrveSearch) || x.Status.Contains(ResrveSearch) || x.utitlisateur.Email.Contains(ResrveSearch)) ;
+            }
+            return View(await Reseveq.AsNoTracking().ToListAsync());
+        }
+
+
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -107,3 +109,5 @@ namespace Reservation.Controllers
 
 
 }
+
+

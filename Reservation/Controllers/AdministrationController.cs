@@ -216,7 +216,14 @@ namespace Reservation.Controllers
     }
 }
 
-//modification:
+
+
+
+
+
+
+
+
 
 
 
@@ -235,9 +242,9 @@ namespace Reservation.Controllers
 
 public class ApplicationUser : IdentityUser
 {
-    
+
     public string Name { get; set; }
-    
+
     public string FullName { get; set; }
 
     public int Counter { get; set; }

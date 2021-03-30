@@ -50,9 +50,7 @@ namespace Reservation.Controllers
 
                 var user = await _userManager.GetUserAsync(User);
                 nec.utitlisateur = user;
-                
-
-
+               
                 //SET
                 _db.Add(nec);
                 await _db.SaveChangesAsync();
