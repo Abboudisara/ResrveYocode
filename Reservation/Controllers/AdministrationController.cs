@@ -148,7 +148,7 @@ namespace Reservation.Controllers
                 {
                     UserId = user.Id,
                     UserName = user.UserName,
-                    //IsSelected = false
+                   
                 };
                 if (await UserManager.IsInRoleAsync(user, role.Name))
                 {
@@ -181,7 +181,7 @@ namespace Reservation.Controllers
                 return View("../Errors/NotFound", $"The role Id : {role.Id} cannot be found");
             }
 
-            // role if deja affectté et in model is select il faut le supprimer , ou l'affecté si il est selecté au model mais non affecté before
+           
 
             IdentityResult result = null;
 
@@ -237,6 +237,11 @@ namespace Reservation.Controllers
 
 
 
+
+
+
+
+//bricolage
 
 
 

@@ -31,7 +31,7 @@ namespace Reservation.Controllers
             return View(List);
         }
 
-        //Search:
+      
         [HttpGet]
         public async Task<IActionResult> Index(String ResrveSearch)
         {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Reservation.Data;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,9 @@ namespace Reservation.Controllers
         public async Task < IActionResult> Index()
         {
             ApplicationUser user = await _userManager.FindByEmailAsync(User.Identity.Name);
-            var display = _db.Reservations.ToList().Where(r=>r.User_id==user.Id);
+            var display = _db.Reservations.Where(r=>r.User_id==user.Id);
 
-            return View(display);
+            return View(display.ToList()) ;
         }
 
 

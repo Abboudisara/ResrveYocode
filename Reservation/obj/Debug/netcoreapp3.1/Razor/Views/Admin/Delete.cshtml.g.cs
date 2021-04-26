@@ -27,7 +27,7 @@ using Reservation.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a6b0bad2ef529ff562e69e055f3bc65b98a1da2e", @"/Views/Admin/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ca89572388283a0f2690dc1cfdc2b0e93741605c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"93d0f3e8d460551feca9d0a54f0ee2801dd7a3a6", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Reservation.Data.Reserve>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
